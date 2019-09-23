@@ -9,10 +9,10 @@ class Header extends Component {
         redirect: false,
     };
 
-    componentWillMount() {
-        this.context.fetchAllProducts("http://localhost:8081/product/list");
-        console.log(this.context.allProducts)
-    }
+    // componentWillMount() {
+    //     this.context.fetchAllProducts("http://localhost:8081/product/list");
+    //     console.log(this.context.allProducts)
+    // }
 
     render() {
         return(

@@ -4,6 +4,7 @@ import {BrowserRouter as Router, Route} from 'react-router-dom';
 import {DataProvider} from "./DataProvider";
 import Header from "./component/Header";
 import ProductPage from "./component/ProductPage";
+import CommentList from "./component/CommentList";
 
 
 
@@ -15,7 +16,8 @@ function App() {
             <Route path="/" render={props => (
                 <div>
                   <Header/>
-                  <ProductPage/>
+                  <ProductPage />
+                  <CommentList />
                 </div>
             )}/>
           </div>

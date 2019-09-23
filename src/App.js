@@ -19,8 +19,9 @@ function App() {
                   <ProductPage/>
                 </div>
             )}/>
-              <Route path="/hello" render={props => (
+              <Route path="/:id" render={props => (
                   <div>
+                      <Header/>
                       <ProductDetails/>
                   </div>
               )}/>

@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import '../App.css';
 import context from "../DataProvider";
 import Product from "./Product";
-import Comments from "./Comments;"
+import Comments from "./Comments"
 import 'bootstrap/dist/css/bootstrap.css';
 import Header from "./Header";
 import {Button} from "react-bootstrap";

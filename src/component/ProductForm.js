@@ -15,25 +15,33 @@ class ProductForm extends Component {
         description: "",
         price:"",
         url: "",
+        productId: "",
         redirect: false,
+        redirectUrl: ""
 
     };
 
 
     onSubmit = (e) =>{
         e.preventDefault();
-        axios.post("http://localhost:8762/shitwish/product/saveproduct", {name: this.state.name, description:this.state.description, price:this.props.price, url:this.state.url})
+        axios.post("http://localhost:8762/shitwish/product/save",
+            {name: this.state.name, description:this.state.description, price:this.props.price, url:this.state.url})
+            .then(response => {
+                this.setState({productId: response.data.id})
+            });
+        this.setState({redirectUrl: "/"+this.state.productId});
+        this.setState({redirect: true})
     };
 
     onChange = (e) =>{
         this.setState({[e.target.name]: e.target.value});
-        this.setState({redirect: true})
+
     };
 
     renderRedirect = () => {
         if (this.state.redirect) {
             this.setState({redirect: false});
-            return <Redirect to="/"/>
+            return <Redirect to={this.state.redirectUrl}/>
         }
     };
 
@@ -50,7 +58,7 @@ class ProductForm extends Component {
                            value={this.state.price}/>
                     <input className="product-form-url" onChange={this.onChange} type="text" name="url" placeholder="Picture URL..."
                            value={this.state.url}/>
-                    <input className="btn btn-outline-secondary" type="submit" name="" value="Add"/>
+                    <input className="btn btn-outline-secondary" type="submit" name="" value="Save"/>
                 </form>
             </div>
 

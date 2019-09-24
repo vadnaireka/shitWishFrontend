@@ -5,6 +5,8 @@ import {DataProvider} from "./DataProvider";
 import Header from "./component/Header";
 import ProductPage from "./component/ProductPage";
 import ProductDetails from "./component/ProductDetails";
+import ProductForm from "./component/ProductForm";
+import Product from "./component/Product";
 
 
 
@@ -17,6 +19,7 @@ function App() {
                 <div>
                   <Header/>
                   <ProductPage/>
+                  <ProductForm/>
                 </div>
             )}/>
               <Route path="/:id" render={props => (

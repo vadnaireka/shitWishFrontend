@@ -43,3 +43,13 @@
 .productcontainer{
   text-align: center;
 }
+
+.tableheader{
+  text-align: center;
+  background-color: yellow;
+}
+
+.tablecell{
+  text-align: center;
+  margin: auto;
+}

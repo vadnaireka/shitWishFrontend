@@ -4,7 +4,7 @@ import {BrowserRouter as Router, Route} from 'react-router-dom';
 import {DataProvider} from "./DataProvider";
 import Header from "./component/Header";
 import ProductPage from "./component/ProductPage";
-
+import Cart from "./component/Cart";
 
 
 function App() {
@@ -16,6 +16,11 @@ function App() {
                 <div>
                   <Header/>
                   <ProductPage/>
+                </div>
+            )}/>
+            <Route path="/cart" render={props => (
+                <div>
+                    <Cart/>
                 </div>
             )}/>
           </div>

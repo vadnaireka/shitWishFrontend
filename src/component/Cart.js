@@ -52,6 +52,7 @@ class Cart extends Component {
                                 <CartItem cartItem={cartItem}/>
                             ))}
                         </div>
+                        {this.sumPrice}
                         <h1 >{this.state.sumprice}</h1>
                         <Button className="btn buy" variant="success"
                                 onClick={() => this.buyCart()}>Buy</Button>

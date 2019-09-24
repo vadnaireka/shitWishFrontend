@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
+import axios from "axios";
 
 import '../App.css';
 import context from "../DataProvider";
@@ -13,6 +14,7 @@ class CartItem extends Component {
     };
 
     deleteFromCart = () => {
+        axios.delete(`http://localhost:9000/cart/delete/${this.props.cartItem.id}`);
         console.log("This should delete from cart");
     };
 

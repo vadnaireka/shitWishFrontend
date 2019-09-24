@@ -9,7 +9,8 @@ const context = React.createContext({
     cartItem: "",
     fetchAllProducts: (url) => {},
     fetchProductDetail: (url) => {},
-    fetchCart: (url) => {}
+    fetchCart: (url) => {},
+    fetchEmptyCart: (url) => {}
 });
 
 
@@ -50,6 +51,11 @@ export class DataProvider extends Component {
                     console.log(reason);
                     this.setState({"errors": [reason]})
             })
+        },
+
+        fetchEmptyCart: (url) => {
+            axios.delete(url);
+            this.setState({cartData: []});
         }
 
     };

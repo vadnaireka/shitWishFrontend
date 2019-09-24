@@ -20,6 +20,7 @@ class Cart extends Component {
     };
 
     emptyCart = () => {
+        this.context.fetchEmptyCart("http://localhost:9000/cart/delete/all");
         console.log("This should EMPTY  cart");
     };
 

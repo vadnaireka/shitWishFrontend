@@ -18,8 +18,9 @@ function App() {
             <Route exact path="/" render={props => (
                 <div>
                   <Header/>
-                  <ProductPage/>
-                  <ProductForm/>
+                    <ProductForm/>
+
+                    <ProductPage/>
                 </div>
             )}/>
               <Route path="/:id" render={props => (

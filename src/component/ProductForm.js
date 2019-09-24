@@ -54,7 +54,7 @@ class ProductForm extends Component {
                            value={this.state.name}/>
                     <textarea onChange={this.onChange} className="description" name="description" placeholder="Description..."
                             value={this.state.description}/><br/>
-                    <input className="product-form-price" onChange={this.onChange} type="number" name="price" placeholder="Price..."
+                    <input className="product-form-price" onChange={this.onChange} type="number" step="0.01" name="price" placeholder="Price..."
                            value={this.state.price}/>
                     <input className="product-form-url" onChange={this.onChange} type="text" name="url" placeholder="Picture URL..."
                            value={this.state.url}/>

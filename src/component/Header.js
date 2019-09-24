@@ -10,7 +10,7 @@ class Header extends Component {
     };
 
     componentWillMount() {
-        this.context.fetchAllProducts("http://localhost:8081/product/list");
+        this.context.fetchAllProducts("http://localhost:8762/product/product/list");
         console.log(this.context.allProducts)
     }
 

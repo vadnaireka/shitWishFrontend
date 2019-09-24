@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import axios from "axios";
 
 import 'bootstrap/dist/css/bootstrap.css'
 import {Button} from "react-bootstrap";
@@ -12,16 +13,25 @@ import CartTableHeader from "./CartTableHeader";
 class Cart extends Component {
 
     state = {
-        redirect: false
+        redirect: false,
+        sumprice: ""
     };
 
     buyCart = () => {
+        axios.post(`http://localhost:9000/cart/buy`, {cartData: this.context.cartData});
         console.log("This should BUY");
     };
 
     emptyCart = () => {
         this.context.fetchEmptyCart("http://localhost:9000/cart/delete/all");
-        console.log("This should EMPTY  cart");
+        console.log("Cart has been emptied");
+    };
+
+    sumPrice = () => {
+        const cartItems = this.context.cartData;
+        const priceTotal = cartItems.reduce((totalPrice, cartItem) => totalPrice + parseInt(cartItem.price, 10), 0);
+        this.setState({sumprice: priceTotal});
+        console.log(priceTotal);
     };
 
 
@@ -42,6 +52,7 @@ class Cart extends Component {
                                 <CartItem cartItem={cartItem}/>
                             ))}
                         </div>
+                        <h1 >{this.state.sumprice}</h1>
                         <Button className="btn buy" variant="success"
                                 onClick={() => this.buyCart()}>Buy</Button>
                         <Button className="btn emptycart" variant="warning"

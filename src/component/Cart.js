@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
 
-import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/css/bootstrap.css'
+import {Button} from "react-bootstrap";
 
 import '../App.css';
 import context from "../DataProvider";
 import CartItem from "./CartItem";
 import CartTableHeader from "./CartTableHeader";
-import Table from 'react-bootstrap/Table';
 
 
 class Cart extends Component {
@@ -14,6 +14,16 @@ class Cart extends Component {
     state = {
         redirect: false
     };
+
+    buyCart = () => {
+        console.log("This should BUY");
+    };
+
+    emptyCart = () => {
+        console.log("This should EMPTY  cart");
+    };
+
+
 
     componentWillMount() {
         this.context.fetchCart("http://localhost:9000/cart/all");
@@ -31,8 +41,14 @@ class Cart extends Component {
                                 <CartItem cartItem={cartItem}/>
                             ))}
                         </div>
+                        <Button className="btn buy" variant="success"
+                                onClick={() => this.buyCart()}>Buy</Button>
+                        <Button className="btn emptycart" variant="warning"
+                                onClick={() => this.emptyCart()}>Empty cart</Button>
                     </div>
                 )}
+
+
             </context.Consumer>
         )
     }

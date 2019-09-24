@@ -5,6 +5,8 @@ import {DataProvider} from "./DataProvider";
 import Header from "./component/Header";
 import ProductPage from "./component/ProductPage";
 import ProductDetails from "./component/ProductDetails";
+import ProductForm from "./component/ProductForm";
+import Product from "./component/Product";
 
 
 
@@ -16,7 +18,9 @@ function App() {
             <Route exact path="/" render={props => (
                 <div>
                   <Header/>
-                  <ProductPage/>
+                    <ProductForm/>
+
+                    <ProductPage/>
                 </div>
             )}/>
               <Route path="/:id" render={props => (

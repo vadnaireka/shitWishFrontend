@@ -4,7 +4,7 @@ import {BrowserRouter as Router, Route} from 'react-router-dom';
 import {DataProvider} from "./DataProvider";
 import Header from "./component/Header";
 import ProductPage from "./component/ProductPage";
-import CommentList from "./component/CommentList";
+import ProductDetails from "./component/ProductDetails";
 
 
 
@@ -13,13 +13,18 @@ function App() {
       <DataProvider>
         <Router>
           <div className="app">
-            <Route path="/" render={props => (
+            <Route exact path="/" render={props => (
                 <div>
                   <Header/>
-                  <ProductPage />
-                  <CommentList />
+                  <ProductPage/>
                 </div>
             )}/>
+              <Route path="/:id" render={props => (
+                  <div>
+                      <Header/>
+                      <ProductDetails/>
+                  </div>
+              )}/>
           </div>
         </Router>
       </DataProvider>

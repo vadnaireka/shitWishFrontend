@@ -5,9 +5,11 @@ import '../App.css';
 import context from "../DataProvider";
 import Card from "react-bootstrap/Card";
 import {Button} from "react-bootstrap";
+import {Redirect} from 'react-router-dom';
 
 
 class Product extends Component {
+
 
     state = {
         url: "",
@@ -15,10 +17,25 @@ class Product extends Component {
 
     };
 
+    redirectToDetails = (id) =>{
+        //this.context.fetchProductDetail("http://localhost:8762/product/"+id);
+        console.log("redirecttodetails");
+        this.setState({url:"/"+id});
+        this.setState({redirect: true});
+    };
+
+    renderRedirect = () => {
+        if (this.state.redirect) {
+            this.setState({redirect: false});
+            return <Redirect to={this.state.url}/>
+        }
+    };
+
     render() {
         return(
+            <div>
+                {this.renderRedirect()}
             <div className="card text-center">
-            {/*<Card className="float-left row-sm product" style={{width: "18rem"}}>*/}
                 <Card.Body className="card-body">
                     <img className="card-image" src={this.props.product.pictureUrl}/>
 
@@ -26,10 +43,10 @@ class Product extends Component {
                     <Card.Text className="card-text">{this.props.product.description}</Card.Text>
 
                     <Button className="btn" variant="secondary" onClick={() => this.redirectToDetails(this.props.product.id)}>See details</Button>
-                    {/*<Rating onClick={(rate) => this.saveRating(this.props.data.eventEntity, rate)} placeholderRating={this.props.data.averagerating}/>*/}
                 </Card.Body>
-            {/*</Card>*/}
             </div>
+            </div>
+
         )
     }
 

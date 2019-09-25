@@ -3,7 +3,7 @@ import axios from "axios";
 
 const context = React.createContext({
     allProducts: [],
-    product: "",
+    product: {},
     errors: [],
     comments: [],
 
@@ -19,7 +19,7 @@ const context = React.createContext({
 export class DataProvider extends Component {
     state = {
         allProducts: [],
-        product: "",
+        product: {},
         errors: [],
         comments: [],
 
@@ -39,6 +39,8 @@ export class DataProvider extends Component {
             axios.get(url)
                 .then(response => {
                     this.setState({product: response.data});
+                    console.log("product with comment" + this.state.product);
+                    console.log("product with comment" + this.state.product)
                 }).catch(reason => {
                 console.log(reason);
                 this.setState({"errors": [reason]})

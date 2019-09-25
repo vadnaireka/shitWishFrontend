@@ -18,7 +18,7 @@ class Product extends Component {
     };
 
     redirectToDetails = (id) =>{
-        //this.context.fetchProductDetail("http://localhost:8762/product/"+id);
+        this.context.fetchProductDetail("http://localhost:8762/product/product/"+id);
         console.log("redirecttodetails");
         this.setState({url:"/"+id});
         this.setState({redirect: true});

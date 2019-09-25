@@ -20,18 +20,16 @@ class ProductDetails extends Component {
 
     render() {
         return(
-            <context.Consumer>
-                {({product}) => (
+
                     <div>
-                        <h2>Toilet Mug</h2>
+                        <h2>hello</h2>
                         <img className="product-fullimage" src={"https://images-na.ssl-images-amazon.com/images/I/41%2B71ynSbvL._SL500_.jpg"}/>
                         <p className="product-description">This stupid piece of porcelain just poses too many questions, and provides too few answers. It’s a crap gift.</p>
                         <p className="product-price">5.99 USD</p>
-                        <Button className="btn" variant="danger" onClick={() => this.redirectToDetails(this.props.product.id)}>Buy</Button>
-                        <Comments/>
+                        {/*<Button className="btn" variant="danger" onClick={() => this.redirectToDetails(this.props.product.id)}>Add to Cart</Button>*/}
+                        {/*<Comments/>*/}
                     </div>
-                )}
-            </context.Consumer>
+
         )
     }
 

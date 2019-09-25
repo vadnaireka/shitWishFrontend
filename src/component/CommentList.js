@@ -22,11 +22,11 @@ class CommentList extends React.Component {
         this.setState({newComment : event.target.value})
     };
 
-    componentWillMount() {
-        this.context.fetchProductComments("http://localhost:8091/comments/1");
-        this.setState({selectedProduct : 1});
-        console.log(this.context.comments)
-    }
+    // componentWillMount() {
+    //     this.context.fetchProductComments("http://localhost:8091/comments/1");
+    //     this.setState({selectedProduct : 1});
+    //     console.log(this.context.comments)
+    // }
 
     onFormSubmit = (event) => {
         event.preventDefault();
@@ -40,12 +40,10 @@ class CommentList extends React.Component {
 
     render() {
         return(
-            <context.Consumer>
-                {({comments}) => (
-                    <div className="ui threaded comments">
+              <div className="ui threaded comments">
                     <h3 className="ui dividing header"> Comments:</h3>
                     <div className="comments">
-                        {comments.map((comment) => (
+                        {this.props.comments.map((comment) => (
 
                             <CommentItem className="comment" comment={comment}/>
 
@@ -65,9 +63,9 @@ class CommentList extends React.Component {
                             <button onClick={this.onFormSubmit}>Add</button>
                         </form>
                     </div>
-                )}
-            </context.Consumer>
         )
+
+
     }
 }
 

@@ -9,29 +9,25 @@ import ProductForm from "./component/ProductForm";
 import Product from "./component/Product";
 
 
-
 function App() {
-  return (
-      <DataProvider>
-        <Router>
-          <div className="app">
-            <Route exact path="/" render={props => (
-                <div>
-                  <Header/>
-                    <ProductForm/>
-                    <ProductPage/>
+    return (
+        <DataProvider>
+            <Router>
+                <div className="app">
+                    <div>
+                        <Header/>
+                        <Route exact path="/" render={props => (
+                            <div>
+                                <ProductForm/>
+                                <ProductPage/>
+                            </div>
+                        )}/>
+                        <Route path="/:id" component={ProductDetails}/>
+                    </div>
                 </div>
-            )}/>
-              <Route path="/:id" render={props => (
-                  <div>
-                      <Header/>
-                      <ProductDetails/>
-                  </div>
-              )}/>
-          </div>
-        </Router>
-      </DataProvider>
-  )
+            </Router>
+        </DataProvider>
+    )
 }
 
 export default App;

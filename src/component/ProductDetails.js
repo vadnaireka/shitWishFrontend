@@ -4,6 +4,7 @@ import context from "../DataProvider";
 import Product from "./Product";
 import Comments from "./Comments"
 import 'bootstrap/dist/css/bootstrap.css';
+import CommentList from "./CommentList";
 import Header from "./Header";
 import {Button} from "react-bootstrap";
 import Card from "react-bootstrap/Card";
@@ -16,20 +17,26 @@ class ProductDetails extends Component {
         redirect: false,
     };
 
-
+    componentDidMount() {
+        this.context.fetchProductDetail("http://localhost:8762/product/product/" + this.props.match.params.id);
+    }
 
     render() {
         return(
-
+            <context.Consumer>
+                {({product}) => (
                     <div>
-                        <h2>hello</h2>
-                        <img className="product-fullimage" src={"https://images-na.ssl-images-amazon.com/images/I/41%2B71ynSbvL._SL500_.jpg"}/>
-                        <p className="product-description">This stupid piece of porcelain just poses too many questions, and provides too few answers. It’s a crap gift.</p>
-                        <p className="product-price">5.99 USD</p>
-                        {/*<Button className="btn" variant="danger" onClick={() => this.redirectToDetails(this.props.product.id)}>Add to Cart</Button>*/}
-                        {/*<Comments/>*/}
-                    </div>
+                        {product && product.ProductEntity ? <h2>{product.ProductEntity.name}</h2> : <div>Pillanat, toltok</div>}
+                        {product && product.ProductEntity ? <img className="product-fullimage" src={product.ProductEntity.pictureUrl}/> : <div>Pillanat, toltok</div>}
+                        {product && product.ProductEntity ? <p className="product-description">{product.ProductEntity.description}</p> : <div>Pillanat, toltok</div>}
+                        {product && product.ProductEntity ? <p className="product-price">{product.ProductEntity.price}</p> : <div>Pillanat, toltok</div>}
 
+
+                        {/*<Button className="btn" variant="danger" onClick={() => this.redirectToDetails(this.props.product.id)}>Add to Cart</Button>*/}
+                        {product && product.ProductRecommendations ? <CommentList comments={product.ProductRecommendations}/> : <div>Pillanat, toltok</div>}
+                    </div>
+                    )}
+            </context.Consumer>
         )
     }
 

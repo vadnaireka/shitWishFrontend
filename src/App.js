@@ -5,6 +5,7 @@ import {DataProvider} from "./DataProvider";
 import Header from "./component/Header";
 import ProductPage from "./component/ProductPage";
 import Cart from "./component/Cart";
+import BuyForm from "./component/BuyForm";
 
 
 function App() {
@@ -21,6 +22,11 @@ function App() {
             <Route path="/cart" render={props => (
                 <div>
                     <Cart/>
+                </div>
+            )}/>
+            <Route path="/buyform" render={props => (
+                <div>
+                    <BuyForm/>
                 </div>
             )}/>
           </div>

@@ -23,12 +23,11 @@ class CartItem extends Component {
     render() {
         return (
             <div>
-                <Table striped bordered>
+                <Table className="cart-list" striped bordered size="sm">
                 <tbody>
                     <tr>
                         <td class="tablecell" style={{width: `30%`}} className="name-column">{this.props.cartItem.name}</td>
-                        <td class="tablecell" style={{width: `40%`}} className="picture-column"><img className="cart-image" src={this.props.cartItem.picture}/></td>
-                        <td class="tablecell" style={{width: `15%`}} className="price-column">{this.props.cartItem.price}</td>
+                        <td class="tablecell" style={{width: `15%`}} className="price-column">{this.props.cartItem.price} $</td>
                         <td class="tablecell" style={{width: `15%`}}><Button className="btn" variant="outline-danger"
                                      onClick={() => this.deleteFromCart(this.props.cartItem.id)}>Delete item</Button></td>
                     </tr>

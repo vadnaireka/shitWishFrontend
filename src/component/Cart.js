@@ -8,18 +8,28 @@ import '../App.css';
 import context from "../DataProvider";
 import CartItem from "./CartItem";
 import CartTableHeader from "./CartTableHeader";
+import {Redirect} from 'react-router-dom';
+
 
 
 class Cart extends Component {
 
     state = {
         redirect: false,
-        sumprice: ""
+        sumprice: "",
     };
 
     buyCart = () => {
         axios.post(`http://localhost:9000/cart/buy`, {cartData: this.context.cartData});
+        this.setState({redirect: true});
         console.log("This should BUY");
+    };
+
+    renderRedirect = () => {
+        if (this.state.redirect) {
+            this.setState({redirect: false});
+            return <Redirect to="/buyform"/>
+        }
     };
 
     emptyCart = () => {
@@ -29,9 +39,11 @@ class Cart extends Component {
 
     sumPrice = () => {
         const cartItems = this.context.cartData;
-        const priceTotal = cartItems.reduce((totalPrice, cartItem) => totalPrice + parseInt(cartItem.price, 10), 0);
-        this.setState({sumprice: priceTotal});
-        console.log(priceTotal);
+        var total = 0;
+        for(var i=0; i<cartItems.length; i++) {
+            total += cartItems[i].price;
+        }
+        return total;
     };
 
 
@@ -45,17 +57,17 @@ class Cart extends Component {
         return (
             <context.Consumer>
                 {({cartData}) => (
-                    <div>
+                    <div className="maxcart">
+                        {this.renderRedirect()}
                         <CartTableHeader/>
                         <div className="cartcontainer">
                             {cartData.map((cartItem) => (
                                 <CartItem cartItem={cartItem}/>
                             ))}
                         </div>
-                        {this.sumPrice}
-                        <h1 >{this.state.sumprice}</h1>
+                        <p className="sumprice">Total: {this.sumPrice()} $</p>
                         <Button className="btn buy" variant="success"
-                                onClick={() => this.buyCart()}>Buy</Button>
+                                onClick={() => this.buyCart()}>Checkout</Button>
                         <Button className="btn emptycart" variant="warning"
                                 onClick={() => this.emptyCart()}>Empty cart</Button>
                     </div>

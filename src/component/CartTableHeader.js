@@ -14,7 +14,6 @@ const CartTableHeader = () => {
                     <thead>
                     <tr>
                         <th class="tableheader" style={{width: `30%`}}>Item</th>
-                        <th class="tableheader" style={{width: `40%`}}>Picture</th>
                         <th class="tableheader" style={{width: `15%`}}>Price</th>
                         <th class="tableheader" style={{width: `15%`}}>#</th>
                     </tr>

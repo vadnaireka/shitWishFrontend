@@ -47,27 +47,27 @@ class BuyForm extends Component {
 
     render() {
         return (
-            <div>
+            <div >
                 <form className="buy-form" onSubmit={this.onSubmit}>
-                    <p>Name: <input className="buy-form-title" onChange={this.onChange} type="text" name="name"
-                                    value={this.state.name}/></p>
-                    <p>E-mail address: <input className="buy-form-email" onChange={this.onChange} type="text"
+                    <p>Name: <br/> <input className="buy-form-title" onChange={this.onChange} type="text" name="name"
+                                    value={this.state.name}  /></p>
+                    <p>E-mail address: <br/> <input className="buy-form-email" onChange={this.onChange} type="text"
                                               name="email"
                                               value={this.state.email}/></p>
-                    <p>Shipping address: <input className="buy-form-address" onChange={this.onChange} type="text"
+                    <p>Shipping address:  <br/><input className="buy-form-address" onChange={this.onChange} type="text"
                                                 name="address"
                                                 value={this.state.address}/></p>
-                    <p>Payment method: <select onChange={this.onChange} className="input" name="paymentmethod">
+                    <p>Payment method:  <br/><select onChange={this.onChange} className="input" name="paymentmethod">
                         <option value="creditcard">Credit/Debit Card</option>
                         <option value="paypal">PayPal</option>
                         <option value="cash">Cash on delivery</option>
                     </select></p>
-                    <p>Shipping method: <select onChange={this.onChange} className="input" name="shippingmethod">
+                    <p>Shipping method:  <br/><select onChange={this.onChange} className="input" name="shippingmethod">
                         <option value="delivery">Home delivery</option>
                         <option value="pickup">Pick-up point</option>
                         <option value="personalpickup">Personal pick-up</option>
                     </select></p>
-                    <button onClick={this.popupConfirmation}>Buy</button>
+                    <button className="buy-form-button" onClick={this.popupConfirmation}>Buy</button>
                 </form>
             </div>
         )

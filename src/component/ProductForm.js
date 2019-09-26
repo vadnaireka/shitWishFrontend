@@ -25,7 +25,7 @@ class ProductForm extends Component {
     onSubmit = (e) =>{
         e.preventDefault();
         axios.post("http://localhost:8762/product/product/save",
-            {name: this.state.name, description:this.state.description, price:this.props.price, url:this.state.url})
+            {name: this.state.name, description:this.state.description, price:this.state.price, url:this.state.url})
             .then(response => {
                 this.setState({productId: response.data.id})
             });

@@ -49,7 +49,7 @@ class Cart extends Component {
 
 
     componentWillMount() {
-        this.context.fetchCart("http://localhost:9000/cart/all");
+        this.context.fetchCart("http://localhost:8762/product/product/cartproducts");
         console.log(this.context.cartData);
     }
 

@@ -22,9 +22,12 @@ class ProductDetails extends Component {
         this.context.fetchProductDetail("http://localhost:8762/product/product/" + this.props.match.params.id);
     }
 
-    putProductInCart = (product) => {
-        axios.post("http://localhost:8762/product/product/savecomment", product)
-    ;}
+    putProductInCart = (productId) => {
+        console.log(productId.toString());
+        axios.post("http://localhost:8762/product/product/addToCart", {data: productId}).then(response =>{
+            console.log("ok")
+        })
+    };
 
     render() {
         return(
@@ -37,7 +40,7 @@ class ProductDetails extends Component {
                         {product && product.ProductEntity ? <p className="product-price">{product.ProductEntity.price}</p> : <div>Pillanat, toltok</div>}
 
 
-                        <Button className="btn" variant="danger" onClick={() => this.putProductInCart(product)}>Add to Cart</Button>
+                        <Button className="btn" variant="danger" onClick={() => this.putProductInCart(product.ProductEntity.id)}>Add to Cart</Button>
                         {product && product.ProductRecommendations ? <CommentList comments={product.ProductRecommendations} productId={product.ProductEntity.id}/> : <div>Pillanat, toltok</div>}
                     </div>
                     )}

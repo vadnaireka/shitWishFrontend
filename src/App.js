@@ -5,8 +5,9 @@ import {DataProvider} from "./DataProvider";
 import Header from "./component/Header";
 import ProductPage from "./component/ProductPage";
 import ProductDetails from "./component/ProductDetails";
+import Cart from "./component/Cart";
 import ProductForm from "./component/ProductForm";
-import Product from "./component/Product";
+import BuyForm from "./component/BuyForm";
 
 
 function App() {
@@ -14,17 +15,24 @@ function App() {
         <DataProvider>
             <Router>
                 <div className="app">
-                    <div>
-                        <Header/>
-                        <Route exact path="/" render={props => (
-                            <div>
-                                <ProductPage/>
-                                <ProductForm/>
+                    <Header/>
+                    <Route exact path="/" render={props => (
+                        <div>
+                            <ProductPage/>
+                            <ProductForm/>
 
-                            </div>
-                        )}/>
-                        <Route path="/:id" component={ProductDetails}/>
-                    </div>
+                        </div>
+                    )}/>
+                    <Route exact path="/product/:id" component={ProductDetails}/>
+
+                    <Route exact path="/cart" render={props => (
+                        <Cart/>
+                    )}/>
+                    <Route path="/buyform" render={props => (
+                        <div>
+                            <BuyForm/>
+                        </div>
+                    )}/>
                 </div>
             </Router>
         </DataProvider>

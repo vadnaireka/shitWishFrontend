@@ -19,7 +19,7 @@ class Product extends Component {
 
     redirectToDetails = (id) =>{
         console.log("redirecttodetails");
-        this.setState({url:"/"+id});
+        this.setState({url:"/product/"+id});
         this.setState({redirect: true});
     };
 

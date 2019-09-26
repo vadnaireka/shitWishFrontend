@@ -8,6 +8,7 @@ import CommentList from "./CommentList";
 import Header from "./Header";
 import {Button} from "react-bootstrap";
 import Card from "react-bootstrap/Card";
+import axios from "axios";
 
 
 
@@ -21,6 +22,10 @@ class ProductDetails extends Component {
         this.context.fetchProductDetail("http://localhost:8762/product/product/" + this.props.match.params.id);
     }
 
+    putProductInCart = (product) => {
+        axios.post("http://localhost:8762/product/product/savecomment", product)
+    ;}
+
     render() {
         return(
             <context.Consumer>
@@ -32,7 +37,7 @@ class ProductDetails extends Component {
                         {product && product.ProductEntity ? <p className="product-price">{product.ProductEntity.price}</p> : <div>Pillanat, toltok</div>}
 
 
-                        {/*<Button className="btn" variant="danger" onClick={() => this.redirectToDetails(this.props.product.id)}>Add to Cart</Button>*/}
+                        <Button className="btn" variant="danger" onClick={() => this.putProductInCart(product)}>Add to Cart</Button>
                         {product && product.ProductRecommendations ? <CommentList comments={product.ProductRecommendations} productId={product.ProductEntity.id}/> : <div>Pillanat, toltok</div>}
                     </div>
                     )}

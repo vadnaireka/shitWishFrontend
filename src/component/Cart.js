@@ -17,12 +17,18 @@ class Cart extends Component {
     state = {
         redirect: false,
         sumprice: "",
+        productIds: []
     };
 
     buyCart = () => {
-        axios.post(`http://localhost:9000/cart/buy`, {cartData: this.context.cartData});
-        this.setState({redirect: true});
-        console.log("This should BUY");
+        this.context.cartData.map((data) =>
+            this.state.productIds.push(data.id));
+        console.log(this.state.productIds);
+        axios.post(`http://localhost:8762/product/product/purchase`, {cartData: this.state.productIds}).then(() => {
+            this.setState({redirect: true});
+            console.log("This should BUY");
+        });
+
     };
 
     renderRedirect = () => {
@@ -33,7 +39,7 @@ class Cart extends Component {
     };
 
     emptyCart = () => {
-        this.context.fetchEmptyCart("http://localhost:9000/cart/delete/all");
+        this.context.fetchEmptyCart("http://localhost:8762/product/product/deleteCart");
         console.log("Cart has been emptied");
     };
 

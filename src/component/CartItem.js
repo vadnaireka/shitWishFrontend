@@ -14,9 +14,9 @@ class CartItem extends Component {
     };
 
     deleteFromCart = () => {
-        axios.delete(`http://localhost:9000/cart/delete/${this.props.cartItem.id}`);
+        axios.delete(`http://localhost:8762/product/product/cart/delete/${this.props.cartItem.id}`).then(() => {
+            this.context.fetchCart("http://localhost:8762/product/product/cartproducts")});
         window.location.reload();
-        this.context.fetchCart("http://localhost:9000/cart/all");
         console.log("This should delete from cart");
     };
 

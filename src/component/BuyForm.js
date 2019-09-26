@@ -5,6 +5,8 @@ import '../App.css';
 import context from "../DataProvider";
 import axios from "axios";
 import {Redirect} from 'react-router-dom';
+import {Button} from "react-bootstrap";
+
 
 
 class BuyForm extends Component {
@@ -67,7 +69,7 @@ class BuyForm extends Component {
                         <option value="pickup">Pick-up point</option>
                         <option value="personalpickup">Personal pick-up</option>
                     </select></p>
-                    <button onClick={this.popupConfirmation}>Buy</button>
+                    <Button className="btn" variant="outline-danger" onClick={this.popupConfirmation}>Buy</Button>
                 </form>
             </div>
         )

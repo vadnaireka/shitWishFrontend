@@ -18,8 +18,9 @@ function App() {
                     <Header/>
                     <Route exact path="/" render={props => (
                         <div>
-                            <ProductPage/>
                             <ProductForm/>
+
+                            <ProductPage/>
 
                         </div>
                     )}/>

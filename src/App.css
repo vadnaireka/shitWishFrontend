@@ -34,6 +34,12 @@
   float: left;
   margin-left: 10px;
   border-radius: 4px;
+  border-color: saddlebrown;
+}
+
+.product-card{
+  border-color: saddlebrown;
+  border-width: 8px;
 }
 
 .card-text{
@@ -42,10 +48,10 @@
 }
 
 .productcontainer{
-  text-align: center;
-  float: right;
-  background-color: #282c34;
-  align-items: center;
+  margin: auto;
+  width: 70%;
+  background-color: saddlebrown;
+
 }
 
 .product-form{
@@ -55,13 +61,18 @@
   padding: 20px;
   text-align: center;
   border-radius: 4px;
-  box-shadow: 5px 10px saddlebrown;
-  margin: 20px;
-  float: left;
+  border-color: white;
+  box-shadow: 5px 10px #b6bbb5;
+  margin: auto;
+  margin-bottom: 20px;
   outline-color: saddlebrown;
   align-items: center;
+  background-color: saddlebrown;
 }
 
+.form-title{
+  color: lightgray;
+}
 .product-form-title, .description{
   display: block;
   width: 100%;
@@ -116,7 +127,7 @@ td{
   width: 50%;
   margin: auto;
   padding-top: 50px;
-  background-color: #282c34;
+  background-color: white;
 }
 
 .header {
@@ -124,12 +135,12 @@ td{
   color: saddlebrown;
   font-size: 150px;
   text-align: center;
-  background-color: #282c34;
+  background-color: white;
   position: relative;
 }
 
 .app{
-  background-color: #282c34;
+  background-color: white;
   height: 1000px;
 }
 
@@ -168,12 +179,9 @@ td{
   color: white;
 }
 
-.product-form{
-  background-color: #282c34;
-}
 
 body {
-  background-color: #282c34;
+  background-color: white;
   align-items: center;
 }
 
@@ -193,3 +201,6 @@ body {
 }
 
 
+.formContainer{
+  text-align: center;
+}

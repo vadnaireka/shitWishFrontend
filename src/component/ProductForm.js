@@ -47,9 +47,11 @@ class ProductForm extends Component {
 
     render() {
         return(
-            <div style={{alignItems: "center"}}>
+            <div className="formContainer">
+
                 {this.renderRedirect()}
                 <form className="product-form"  onSubmit={this.onSubmit}>
+                    <h2 className="form-title">Upload new product</h2>
                     <input className="product-form-title" onChange={this.onChange} type="text" name="name" placeholder="Product name..."
                            value={this.state.name}/>
                     <textarea onChange={this.onChange} className="description" name="description" placeholder="Description..."

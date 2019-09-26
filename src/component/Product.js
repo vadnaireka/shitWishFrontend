@@ -34,7 +34,7 @@ class Product extends Component {
         return(
             <div>
                 {this.renderRedirect()}
-            <div className="card text-center">
+            <div className="card text-center product-card">
                 <Card.Body className="card-body">
                     <img className="card-image" src={this.props.product.pictureUrl}/>
 

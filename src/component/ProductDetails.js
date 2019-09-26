@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import '../App.css';
 import context from "../DataProvider";
 import Product from "./Product";
-import Comments from "./Comments"
+import Comments from "./CommentForm"
 import 'bootstrap/dist/css/bootstrap.css';
 import CommentList from "./CommentList";
 import Header from "./Header";
@@ -33,7 +33,7 @@ class ProductDetails extends Component {
 
 
                         {/*<Button className="btn" variant="danger" onClick={() => this.redirectToDetails(this.props.product.id)}>Add to Cart</Button>*/}
-                        {product && product.ProductRecommendations ? <CommentList comments={product.ProductRecommendations}/> : <div>Pillanat, toltok</div>}
+                        {product && product.ProductRecommendations ? <CommentList comments={product.ProductRecommendations} productId={product.ProductEntity.id}/> : <div>Pillanat, toltok</div>}
                     </div>
                     )}
             </context.Consumer>

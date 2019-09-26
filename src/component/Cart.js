@@ -66,20 +66,19 @@ class Cart extends Component {
                     <div className="maxcart">
                         {this.renderRedirect()}
                         <CartTableHeader/>
+
                         <div className="cartcontainer">
                             {cartData.map((cartItem) => (
                                 <CartItem cartItem={cartItem}/>
                             ))}
-                        </div>
                         <p className="sumprice">Total: {this.sumPrice()} $</p>
                         <Button className="btn buy" variant="success"
                                 onClick={() => this.buyCart()}>Checkout</Button>
                         <Button className="btn emptycart" variant="warning"
                                 onClick={() => this.emptyCart()}>Empty cart</Button>
+                        </div>
                     </div>
                 )}
-
-
             </context.Consumer>
         )
     }
